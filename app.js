@@ -19,6 +19,26 @@ let rames = [
     {
         quem: 'Fabio',
         quantos: 1000
+    },
+    {
+        quem: 'Renan',
+        quantos: 1000
+    },
+    {
+        quem: 'Ilson',
+        quantos: 1000
+    },
+    {
+        quem: 'Natasha',
+        quantos: 1000
+    },
+    {
+        quem: 'Daniel',
+        quantos: 1000
+    },
+    {
+        quem: 'Tania',
+        quantos: 1000
     }
 ];
 
