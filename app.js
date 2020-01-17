@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 
 const app = express();
 
@@ -8,7 +9,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-let rames = {
+/*let rames = {
   Bruninho: 'Ad infinitum',
   Thiago: '10',
   Fabio: '1000',
@@ -17,7 +18,9 @@ let rames = {
   Natasha: '1000',
   Daniel: '1000',
   Tania: '1000'
-};
+};*/
+
+let rames = JSON.parse(fs.readFileSync('rames.json'));
 
 app.get('', (req, res, next) => {
     res.render('main', {
@@ -28,6 +31,8 @@ app.get('', (req, res, next) => {
 app.post('', (req, res, next) => {
     console.log(req.body);
     rames = req.body;
+    fs.writeFileSync('rames.json', JSON.stringify(rames));
+    
     res.render('main', {
         rames: rames
     });
