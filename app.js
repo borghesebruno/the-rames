@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 let rames = [
     {
         quem: 'Bruninho',
-        quantos: 1000000
+        quantos: 'Ad infinitum'
     },
     {
         quem: 'Thiago',
@@ -22,7 +22,7 @@ let rames = [
     },
     {
         quem: 'Renan',
-        quantos: 1000
+        quantos: 10002
     },
     {
         quem: 'Ilson',
