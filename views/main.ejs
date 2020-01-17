@@ -27,16 +27,17 @@
     </header>
 
     <main>
-        <% if(rames.length > 0) { %>
+        <form method="post" action="/">
             <ul>
-                <% for(let rame of rames) { %>
+                <% for(let rame in rames) { %>
                     <li>
-                        <h3><%= rame.quem %></h3>
-                        Total de derrames: <%= rame.quantos %>
+                        <h3><%= rame %></h3>
+                        Total de derrames: <input type="text" name="<%= rame %>" value="<%= rames[rame] %>"" />
                     </li>
                 <% } %>
             </ul>
-        <% } %>
+            <input type="submit" value="Salvar">
+        </form>
     </main>
 </body>
 

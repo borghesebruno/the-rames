@@ -6,46 +6,28 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-let rames = [
-    {
-        quem: 'Bruninho',
-        quantos: 'Ad infinitum'
-    },
-    {
-        quem: 'Thiago',
-        quantos: 10
-    },
-    {
-        quem: 'Fabio',
-        quantos: 1000
-    },
-    {
-        quem: 'Renan',
-        quantos: 10002
-    },
-    {
-        quem: 'Ilson',
-        quantos: 1000
-    },
-    {
-        quem: 'Natasha',
-        quantos: 1000
-    },
-    {
-        quem: 'Daniel',
-        quantos: 1000
-    },
-    {
-        quem: 'Tania',
-        quantos: 1000
-    }
-];
+let rames = {
+  Bruninho: 'Ad infinitum',
+  Thiago: '10',
+  Fabio: '1000',
+  Renan: '10002',
+  Ilson: '1000',
+  Natasha: '1000',
+  Daniel: '1000',
+  Tania: '1000'
+};
 
 app.get('', (req, res, next) => {
     res.render('main', {
         rames: rames
     });
+});
+
+app.post('', (req, res, next) => {
+    console.log(req.body);
+    rames = req.body;
 });
 
 app.listen(3000);
