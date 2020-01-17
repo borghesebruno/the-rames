@@ -28,6 +28,9 @@ app.get('', (req, res, next) => {
 app.post('', (req, res, next) => {
     console.log(req.body);
     rames = req.body;
+    res.render('main', {
+        rames: rames
+    });
 });
 
 app.listen(3000);
