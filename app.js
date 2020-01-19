@@ -30,8 +30,11 @@ app.get('', (req, res, next) => {
 
 app.post('', (req, res, next) => {
     console.log(req.body);
-    rames = req.body;
-    fs.writeFileSync('rames.json', JSON.stringify(rames));
+
+    if(req.body.Bruninho) {
+        rames = req.body;
+        fs.writeFileSync('rames.json', JSON.stringify(rames));
+    }
     
     res.render('main', {
         rames: rames
