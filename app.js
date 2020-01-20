@@ -21,10 +21,18 @@ app.use(bodyParser.json());
 };*/
 
 let rames = JSON.parse(fs.readFileSync('rames.json'));
+function getTotal (rames) {
+    let total = 0;
+    for(let rame in rames) {
+        total += isNaN(rames[rame]) ? 0 : Number(rames[rame]);
+    }
+    return total;
+}
 
 app.get('', (req, res, next) => {
     res.render('main', {
-        rames: rames
+        rames: rames,
+        total: getTotal(rames)
     });
 });
 
@@ -37,7 +45,8 @@ app.post('', (req, res, next) => {
     }
     
     res.render('main', {
-        rames: rames
+        rames: rames,
+        total: getTotal(rames)
     });
 });
 
